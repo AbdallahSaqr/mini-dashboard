@@ -12,31 +12,30 @@ export default function SideBar() {
   ];
 
   return (
-    <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100">
-      <NavLink
-        to="/"
-        className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-      >
-        <i className="bi bi-bootstrap-fill me-2" style={{ fontSize: "1.5rem" }}></i>
-        <span className="fs-4">Mini Dashboard</span>
-      </NavLink>
-      <hr />
-      <ul className="nav nav-pills flex-column mb-auto">
-        {navItems.map((item, idx) => (
-          <li key={idx}>
-            <NavLink
-              to={item.path}
-              className={({ isActive }) =>
-                "nav-link d-flex align-items-center " +
-                (isActive ? "active text-white" : "text-white")
-              }
-            >
-              <i className={`bi bi-${item.icon} me-2`}></i>
-              {item.label}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+    <div className="sidebar-custom">
+      <div className="sidebar-inner">
+        <div className="sidebar-header">
+          <i className="bi bi-bootstrap-fill me-2" style={{ fontSize: "1.5rem" }}></i>
+          <span className="fs-5 fw-bold">Mini Dashboard</span>
+        </div>
+        <hr />
+        <ul className="nav flex-column">
+          {navItems.map((item, idx) => (
+            <li key={idx}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  "nav-link d-flex align-items-center " +
+                  (isActive ? "active-link" : "")
+                }
+              >
+                <i className={`bi bi-${item.icon} me-2`}></i>
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
