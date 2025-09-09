@@ -15,8 +15,8 @@ export default function SideBar() {
     <div className="sidebar-custom">
       <div className="sidebar-inner">
         <div className="sidebar-header">
-          <i className="bi bi-bootstrap-fill me-2" style={{ fontSize: "1.5rem" }}></i>
-          <span className="fs-5 fw-bold">Mini Dashboard</span>
+          <i className="bi bi-clipboard2-data-fill me-2" style={{ fontSize: "1.5rem" }}></i>
+          <span className="fs-5 fw-bold">My Dashboard</span>
         </div>
         <hr />
         <ul className="nav flex-column">

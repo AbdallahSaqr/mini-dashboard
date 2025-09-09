@@ -11,7 +11,7 @@ export default function Layout({ children }) {
         </div>
 
         {/* Main content */}
-        <div className="col-9 col-md-10 p-4">
+        <div className="col-9 col-md-10 p-0">
           {children}
         </div>
       </div>
