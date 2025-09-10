@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function SideBar() {
   const [isOpen, setIsOpen] = useState(false);
