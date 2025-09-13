@@ -1,7 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import NotificationsWidget from './NotificationsWidget';
+import { useAuth } from '../context/AuthContext';
 
-export default function Header({ title, icon, onLogout, onProfile }) {
+export default function Header({ title, icon, onProfile }) {
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+  const [showNotifications, setShowNotifications] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [notifications, setNotifications] = useState([]);
   const profileRef = useRef(null);
 
   // Close menu when clicking outside
@@ -29,8 +36,24 @@ export default function Header({ title, icon, onLogout, onProfile }) {
           <h1 className="header-title mb-0">{title}</h1>
         </div>
 
-        {/* Profile */}
+        {/* Actions */}
         <div className="header-actions">
+          {/* Notifications */}
+          <div className="header-action">
+            <button
+              className="icon-button"
+              onClick={() => setShowNotifications(!showNotifications)}
+            >
+              <i className="bi bi-bell"></i>
+              {notifications.some(n => !n.isRead) && (
+                <span className="notification-badge">
+                  {notifications.filter(n => !n.isRead).length}
+                </span>
+              )}
+            </button>
+          </div>
+
+          {/* Profile */}
           <div className="header-action" ref={profileRef}>
             <button
               className="profile-btn"
@@ -49,7 +72,13 @@ export default function Header({ title, icon, onLogout, onProfile }) {
                     <i className="bi bi-person me-2" style={{ fontSize: "1rem" }}></i>
                     Profile
                   </button>
-                  <button onClick={onLogout}>
+                  <button 
+                    onClick={() => {
+                      setShowProfileMenu(false);
+                      logout();
+                      navigate('/');
+                    }}
+                  >
                     <i className="bi bi-box-arrow-in-left me-2" style={{ fontSize: "1rem" }}></i>
                     Log out
                   </button>
@@ -57,6 +86,13 @@ export default function Header({ title, icon, onLogout, onProfile }) {
               </div>
             )}
           </div>
+
+          {/* Notifications Widget */}
+          <NotificationsWidget 
+            isOpen={showNotifications} 
+            onClose={() => setShowNotifications(false)}
+            onNotificationsChange={setNotifications}
+          />
         </div>
       </div>
     </header>

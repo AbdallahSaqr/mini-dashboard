@@ -37,5 +37,20 @@ export const getTodos = async () => {
     }
 }
 
+// API call to create a Post
+export const createPost = async (newPost) => {
+  try {
+    const response = await api.post("/posts", newPost, {
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error creating post:", error);
+    throw error;
+  }
+};
+
 
 export default api;

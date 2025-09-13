@@ -8,7 +8,6 @@ export default function SideBar() {
     { label: "Dashboard", path: "/dashboard", icon: "speedometer2" },
     { label: "Data Table", path: "/table", icon: "table" },
     { label: "Add Entry", path: "/add", icon: "plus-circle" },
-    { label: "Notifications", path: "/notifications", icon: "bell" },
     { label: "Settings", path: "/settings", icon: "gear" },
   ];
 
@@ -22,7 +21,6 @@ export default function SideBar() {
 
   return (
     <>
-      {/* Burger Button */}
       <button
         type="button"
         className="burger-btn"
@@ -41,8 +39,6 @@ export default function SideBar() {
           />
         </svg>
       </button>
-
-      {/* Backdrop for mobile */}
       <div
         className={`sidebar-backdrop ${isOpen ? "show" : ""}`}
         onClick={closeSidebar}
