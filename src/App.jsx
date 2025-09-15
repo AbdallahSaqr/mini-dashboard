@@ -7,7 +7,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import DataTable from "./pages/DataTable";
 import AddEntry from "./pages/AddEntry";
-import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
@@ -36,13 +35,6 @@ function App() {
           <PrivateRoute>
             <Layout>
               <AddEntry />
-            </Layout>
-          </PrivateRoute>
-        } />
-        <Route path="/settings" element={
-          <PrivateRoute>
-            <Layout>
-              <Settings />
             </Layout>
           </PrivateRoute>
         } />

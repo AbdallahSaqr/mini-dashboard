@@ -8,7 +8,6 @@ export default function SideBar() {
     { label: "Dashboard", path: "/dashboard", icon: "speedometer2" },
     { label: "Data Table", path: "/table", icon: "table" },
     { label: "Add Entry", path: "/add", icon: "plus-circle" },
-    { label: "Settings", path: "/settings", icon: "gear" },
   ];
 
   const toggleSidebar = () => {

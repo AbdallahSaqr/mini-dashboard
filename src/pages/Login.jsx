@@ -209,7 +209,10 @@ export default function Login() {
               <p className="mb-0">
                 Don't have an account? {' '}
                 <button 
-                  onClick={() => navigate('/register')} 
+                  onClick={() => {
+                    console.log('Navigating to register page...');
+                    navigate('/register', { replace: true });
+                  }} 
                   className="text-primary text-decoration-none bg-transparent border-0"
                   style={{ cursor: 'pointer' }}
                 >

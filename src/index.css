@@ -146,7 +146,7 @@ body {
   border-collapse: collapse;
   color: white;
   font-size: 0.95rem;
-  min-width: 500px; /* keeps structure on mobile */
+  min-width: 500px;
 }
 
 /* Headings */
@@ -266,6 +266,7 @@ body {
   left: 0;
   width: 100%;
   max-width: 16rem;
+  height: 100vh;
   z-index: 1040;
   transition: transform 0.3s ease-in-out;
   transform: translateX(-100%);
@@ -299,7 +300,7 @@ body {
 
 /* Burger button */
 .burger-btn {
-  display: flex !important; /* Override any Bootstrap classes */
+  display: flex !important; 
   align-items: center;
   justify-content: center;
   width: 44px;
@@ -850,11 +851,19 @@ body {
 @media (max-width: 768px) {
   .notifications-panel {
     top: 60px;
-    right: 10px;
     left: 10px;
-    max-width: none;
+    right: 10px;
+    width: auto;       
+    max-width: none;   
+  }
+
+  .notifications-panel .card-inner {
+    max-height: 70vh;  
+    overflow-y: auto;  
+    border-radius: 0.75rem;
   }
 }
+
 
 /* Login Page */
 .login-page {
